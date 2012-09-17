@@ -57,7 +57,7 @@ module MongoidAutoInc
           collection.find_and_modify(opts)["number"]
         else
           collection.database.command({
-            findandmodify: collection.name
+            :findandmodify => collection.name
           }.merge(opts))['value']['number']
         end
       end
